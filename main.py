@@ -145,7 +145,7 @@ ynew = np.argmax(ynew, axis= 1)
 
 st.write(ynew)
 
-le_trouble = liste[ynew]
+le_trouble = liste[2]
 
 printf(le_trouble)
 
