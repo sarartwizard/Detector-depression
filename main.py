@@ -12,7 +12,7 @@ font="sans serif"
 st.title('Depression Detector')
 
 st.write('''
-Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :smile:
+# Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
 ''')
 
 st.sidebar.header("les parametres d'entrée")
@@ -90,11 +90,11 @@ nmp=df.to_numpy()
 print(df)
 
 st.write('''Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.''')
-st.write(''' 0 ->  Jamais''')
-st.write(''' 1 et 3 ->  Rarement''')
-st.write('''entre 3 et 5 -> Souvent''')
-st.write('''entre 5 et 8 -> Tres souvent''')
-st.write('''entre 8 et 10 -> Tout le temps''')
+st.write(''' 0 :arrow_right:  Jamais''')
+st.write(''' 1 et 3 :arrow_right:  Rarement''')
+st.write('''entre 3 et 5 :arrow_right: Souvent''')
+st.write('''entre 5 et 8 :arrow_right: Tres souvent''')
+st.write('''entre 8 et 10 :arrow_right: Tout le temps ''')
 
 
 import pandas as pd 
