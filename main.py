@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from tensorflow.python.keras.models import model_from_json
-import urllib
 
 st.write('''
 # Depression Detector
@@ -72,7 +71,7 @@ def user_input():
             'energie_debordante' : energie_debordante,
             'dimunition_du_besoin_de_dormir' : dimunition_du_besoin_de_dormir,
             'variableB' : variableB,
-            'interval_de_temps2': interval_de_temps
+            'interval_de_temps2': interval_de_temps2
 
     }
 
@@ -92,43 +91,92 @@ st.subheader('entre 5 et 8 -> Tres souvent')
 st.subheader('entre 8 et 10 -> Tout le temps')
 
 
-
-st.write(df)
-
-# charger le modele pour faire des prédictions sur des nouvelles données
-json_file = open("model_MLPCLASSIFER.json")
-#json_file = open("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.json", 'r')
-loaded_model_json = json_file.read()
-json_file.close()
-model = model_from_json(loaded_model_json)
-# load weights into new model
-
-url = 'https://github.com/sarartwizard/Detector-depression/blob/master/model_MLPCLASSIFER.h5'
-
-filename = url.split('/')[-1]
-model.load_weights(urllib.request.urlretrieve(url, filename))
-#model.load_weights('C:/Usersvnadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5')
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OrdinalEncoder
 
 
-print(" -------  The model is  loaded from disk  -------")
-model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
+data = pd.read_csv("DatasetPA.csv",sep=";")
+data.drop(columns='ID', inplace = True)
+data = data.drop(data.index[0])
+data = data.sample(frac=1).reset_index(drop=True)
+data["A"] = data["A"].apply( lambda x : x.replace(",", ".")).astype(float)
+data["B"] = data["B"].apply( lambda x : x.replace(",", ".")).astype(float)
+encoder = OrdinalEncoder()
+labels = encoder.fit_transform((np.array(data["Diagnostique"]).reshape(-1,1)))
+features = np.array(data.drop(columns="Diagnostique"))
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size = 0.3, random_state = 42 ,stratify = labels )
+NUM_CLASSES = 6
 
 
-# Tester sur de nouvelles données (données de test)
+def Build_Model():
+    model = keras.Sequential([
+        keras.layers.Dense(26),
+        keras.layers.Dense(100, activation='relu'),
+        keras.layers.Dense(80, activation='relu'),
+        keras.layers.Dense(60, activation='relu'),
+        keras.layers.Dense(NUM_CLASSES, activation='softmax')
+    ])
+    opt= tf.optimizers.Adam(learning_rate=0.0001)
+    model.compile(optimizer=opt,loss = 'sparse_categorical_crossentropy',metrics = ['accuracy'])
+    return model
+
+model = Build_Model()
+
 from sklearn.datasets import make_blobs
-
 xnew, _ = make_blobs(n_samples=1, centers=2, n_features=26, random_state=1)
 ynew = model.predict_proba(xnew)
 
-
 for i in range(len(xnew)):
 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
 
 
-ynew = np.argmax(ynew, axis= 1)
 
-for i in range(len(xnew)):
-	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
+history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=175, batch_size= 1000)
+
+# 
+# st.write(df)
+# 
+# # charger le modele pour faire des prédictions sur des nouvelles données
+# json_file = open("model_MLPCLASSIFER.json")
+# #json_file = open("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.json", 'r')
+# loaded_model_json = json_file.read()
+# json_file.close()
+# model = model_from_json(loaded_model_json)
+# # load weights into new model
+# 
+# import h5py    
+#     
+# rf = h5py.File('model_MLPCLASSIFER.h5','r+')   
+# 
+# model.load_weights(rf)
+# #model.load_weights('C:/Usersvnadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5')
+# 
+# 
+# print(" -------  The model is  loaded from disk  -------")
+# model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+# 
+# 
+# # Tester sur de nouvelles données (données de test)
+# from sklearn.datasets import make_blobs
+# 
+# xnew, _ = make_blobs(n_samples=1, centers=2, n_features=26, random_state=1)
+# ynew = model.predict_proba(xnew)
+# 
+# 
+# for i in range(len(xnew)):
+# 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
+# 
+# 
+# ynew = np.argmax(ynew, axis= 1)
+# 
+# for i in range(len(xnew)):
+# 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
 
 
 # convertir le label en maladie 
