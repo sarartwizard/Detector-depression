@@ -101,7 +101,7 @@ model = model_from_json(loaded_model_json)
 # load weights into new model
 
 
-model.load_weights('https://github.com/sarartwizard/Detector-depression/model_MLPCLASSIFER.h5')
+model.load_weights('https://github.com/sarartwizard/Detector-depression/blob/main/model_MLPCLASSIFER.h5')
 
 
 print(" -------  The model is  loaded from disk  -------")
