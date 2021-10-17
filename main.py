@@ -112,8 +112,7 @@ model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accurac
 
 
 # Tester sur de nouvelles données (données de test)
-#fom sklearn.datasets import make_blobs
-fom sklearn import make_blobs
+fom sklearn.datasets import make_blobs
 
 xnew, _ = make_blobs(n_samples=1, centers=2, n_features=26, random_state=1)
 ynew = model.predict_proba(xnew)
