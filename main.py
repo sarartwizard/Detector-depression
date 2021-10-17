@@ -125,7 +125,7 @@ ynew = np.argmax(ynew, axis= 1)
 
 for i in range(len(xnew)):
 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
-	if ynew[i] == 0{
+	if ynew[i] = 0{
 		print("Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé")
 	}
 
