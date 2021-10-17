@@ -144,7 +144,7 @@ ynew = np.argmax(ynew, axis= 1)
 
 st.write(ynew)
 ynew = ynew.item()
-st.write(ynew)
+st.write(liste[ynew])
 
 
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
