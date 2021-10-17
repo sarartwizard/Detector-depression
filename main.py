@@ -128,7 +128,7 @@ for i in range(len(xnew)):
 
 # convertir le label en maladie 
 
-label = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé", 
+liste = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé", 
 	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé ",
 	 "Bonne nouvelle vous n'avez pas de probleme de santé mental",
 	 "vous souffrez peut etre de dépression récurrente brève, ce n'est pas tres grave mais vous pouvez consulter un psychologue si vous le souhaitez",
@@ -143,7 +143,11 @@ print (ynew)
 ynew = np.argmax(ynew, axis= 1)
 
 
-st.write(label[ynew])
+st.write(ynew)
+
+le_trouble = liste[ynew]
+
+printf(le_trouble)
 
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
