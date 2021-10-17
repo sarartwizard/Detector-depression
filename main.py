@@ -100,7 +100,8 @@ loaded_model_json = json_file.read()
 json_file.close()
 model = model_from_json(loaded_model_json)
 # load weights into new model
-model.load_weights("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5")
+model.load_weights("model_MLPCLASSIFER.h5")
+#model.load_weights("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5")
 print(" -------  The model is  loaded from disk  -------")
 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
