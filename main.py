@@ -141,8 +141,6 @@ liste = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons 
 Xnew = nmp
 ynew = model.predict(Xnew)
 ynew = np.argmax(ynew, axis= 1)
-
-st.write(ynew)
 ynew = ynew.item()
 st.write(liste[ynew])
 
