@@ -143,8 +143,7 @@ ynew = model.predict(Xnew)
 ynew = np.argmax(ynew, axis= 1)
 
 st.write(ynew)
-ynew =ynew.astype(int)
-
+ynew = ynew.item()
 st.write(ynew)
 
 
