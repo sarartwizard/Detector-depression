@@ -125,6 +125,9 @@ ynew = np.argmax(ynew, axis= 1)
 
 for i in range(len(xnew)):
 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
+	if ynew[i] == 0{
+		print("Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé")
+	}
 
 # convertir le label en maladie 
 
@@ -146,10 +149,8 @@ ynew = np.argmax(ynew, axis= 1)
 st.write(ynew)
 
 
-st.write(liste[2])
-le_trouble = liste[2]
+st.write(liste[ynew])
 
-printf(le_trouble)
 
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
