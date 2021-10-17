@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from tensorflow.python.keras.models import model_from_json
+import urllib
 
 st.write('''
 # Depression Detector
