@@ -12,7 +12,7 @@ font="sans serif"
 st.title('Depression Detector')
 
 st.write('''
-# Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
+### Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
 ''')
 
 st.sidebar.header("les parametres d'entrée")
