@@ -95,12 +95,12 @@ st.subheader('entre 8 et 10 -> Tout le temps')
 st.write(df)
 
 # charger le modele pour faire des prédictions sur des nouvelles données
-json_file = open("C:/Users/nadou/PycharmProjects/pythonProject6/streamlit-app-pa/model_MLPCLASSIFER.json", 'r')
+json_file = open("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.json", 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 model = model_from_json(loaded_model_json)
 # load weights into new model
-model.load_weights("C:/Users/nadou/PycharmProjects/pythonProject6/streamlit-app-pa/model_MLPCLASSIFER.h5")
+model.load_weights("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5")
 print(" -------  The model is  loaded from disk  -------")
 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
