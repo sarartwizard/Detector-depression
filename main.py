@@ -104,8 +104,11 @@ json_file.close()
 model = model_from_json(loaded_model_json)
 # load weights into new model
 
+import h5py    
+    
+rf = h5py.File('model_MLPCLASSIFER.h5','r+')   
 
-model = load_model('model_MLPCLASSIFER.h5')
+model.load_weights(rf)
 #model.load_weights('C:/Usersvnadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5')
 
 
