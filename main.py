@@ -21,7 +21,7 @@ st.sidebar.header("les parametres d'entrée")
 
 
 def user_input():
-    genre = st.sidebar.slider('Homme = 1 / Femme = 2', 1, 2, 1)
+    genre = st.sidebar.slider('Homme = 0 / Femme = 1', 0, 1, 1)
     Age = st.sidebar.slider('Votre age', 15, 60, 25)
     Trouble_du_Sommeil = st.sidebar.slider('Trouble du sommeil', 0, 10, 5)
     Fatigue_intense = st.sidebar.slider('Fatigue intense',0,10,8)
