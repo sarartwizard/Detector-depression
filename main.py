@@ -2,15 +2,9 @@ from json import encoder
 
 import streamlit as st
 import pandas as pd
-from sklearn.model_selection import train_test_split
 import numpy as np
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.utils import to_categorical
-from tensorflow.python.keras import optimizers
-import matplotlib.pyplot as plt
 from tensorflow.python.keras.models import model_from_json
-from sklearn import preprocessing
+
 
 st.write('''
 # Depression Detector
