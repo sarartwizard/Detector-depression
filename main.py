@@ -103,10 +103,9 @@ json_file.close()
 model = model_from_json(loaded_model_json)
 # load weights into new model
 
-url = 'https://github.com/sarartwizard/Detector-depression/blob/master/model_MLPCLASSIFER.h5'
+from keras.models import load_model
 
-filename = url.split('/')[-1]
-model.load_weights(urllib.request.urlretrieve(url, filename))
+model = load_model('model_MLPCLASSIFER.h5')
 #model.load_weights('C:/Usersvnadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5')
 
 
