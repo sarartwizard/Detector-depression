@@ -97,6 +97,7 @@ import tensorflow as tf
 from tensorflow import keras
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OrdinalEncoder
+import csv
 
 
 from IPython.core.display import display, HTML
