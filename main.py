@@ -104,7 +104,6 @@ json_file.close()
 model = model_from_json(loaded_model_json)
 # load weights into new model
 
-from keras.models import load_model
 
 model = load_model('model_MLPCLASSIFER.h5')
 #model.load_weights('C:/Usersvnadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5')
