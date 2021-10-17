@@ -102,7 +102,7 @@ import csv
 
 from IPython.core.display import display, HTML
 display(HTML("<style>.container { width:100% !important; }</style>"))
-data = pd.read_csv("DatasetPA.csv",sep=";")
+data = pd.read_excel("DatasetPA.xlsx")
 data.drop(columns='ID', inplace = True)
 data = data.drop(data.index[0])
 data = data.sample(frac=1).reset_index(drop=True)
