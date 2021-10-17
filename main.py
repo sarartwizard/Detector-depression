@@ -9,7 +9,7 @@ backgroundColor="#ffffff"
 secondaryBackgroundColor="#e8eef9"
 textColor="#000000"
 font="sans serif"
-st.title('Depression Detector')
+st.title('Depression Detector :pill:')
 
 st.write('''
 ### Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
@@ -202,7 +202,7 @@ ynew = model.predict(Xnew)
 ynew = np.argmax(ynew, axis= 1)
 
 ynew = ynew.item()
-st.write(liste[ynew])
+st.subheader(liste[ynew])
 
 
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
