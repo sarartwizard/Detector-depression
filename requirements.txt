@@ -2,3 +2,5 @@ streamlit
 tensorflow==2.0.0
 sklearn
 keras
+keras.models
+load_model
