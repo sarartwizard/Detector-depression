@@ -102,7 +102,7 @@ model = model_from_json(loaded_model_json)
 # load weights into new model
 url = 'https://github.com/sarartwizard/Detector-depression/main/model_MLPCLASSIFER.h5'
 
-model.load_weights(url)
+#model.load_weights(url)
 
 #model.load_weights("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.h5")
 #model.load_weights("model_MLPCLASSIFER.h5")
