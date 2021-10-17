@@ -1,5 +1,4 @@
 from json import encoder
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -95,7 +94,8 @@ st.subheader('entre 8 et 10 -> Tout le temps')
 st.write(df)
 
 # charger le modele pour faire des prédictions sur des nouvelles données
-json_file = open("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.json", 'r')
+json_file = open("model_MLPCLASSIFER.json")
+#json_file = open("C:/Users/nadou/PycharmProjects/Projet annuel/Detector-depression/model_MLPCLASSIFER.json", 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 model = model_from_json(loaded_model_json)
