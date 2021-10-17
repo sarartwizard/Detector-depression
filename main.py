@@ -4,9 +4,15 @@ import pandas as pd
 import numpy as np
 from tensorflow.python.keras.models import model_from_json
 
+primaryColor="#2214c7"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#e8eef9"
+textColor="#000000"
+font="sans serif"
+st.title('Depression Detector')
+
 st.write('''
-# Depression Detector
-cette application diagnostique la presence de trouble depressif chez une personne de plus de 15ans
+Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :smile:
 ''')
 
 st.sidebar.header("les parametres d'entrée")
@@ -83,12 +89,12 @@ df=user_input()
 nmp=df.to_numpy()
 print(df)
 
-st.subheader('Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.')
-st.subheader(' 0 ->  Jamais')
-st.subheader(' 1 et 3 ->  Rarement')
-st.subheader('entre 3 et 5 -> Souvent')
-st.subheader('entre 5 et 8 -> Tres souvent')
-st.subheader('entre 8 et 10 -> Tout le temps')
+st.write('''Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.''')
+st.write(''' 0 ->  Jamais''')
+st.write(''' 1 et 3 ->  Rarement''')
+st.write('''entre 3 et 5 -> Souvent''')
+st.write('''entre 5 et 8 -> Tres souvent''')
+st.write('''entre 8 et 10 -> Tout le temps''')
 
 
 import pandas as pd 
