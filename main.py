@@ -128,13 +128,15 @@ for i in range(len(xnew)):
 
 # convertir le label en maladie 
 
-label = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un psy", 
+label = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé", 
 	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé ",
-	 "vous avez pas de probleme de santé mental",
-	 "vous souffrez peut etre de dépression récurrente brève, ce n'est pas tres grave mais vous pouvez consulter un psychologue si vous le souhaitez")
+	 "Bonne nouvelle vous n'avez pas de probleme de santé mental",
+	 "vous souffrez peut etre de dépression récurrente brève, ce n'est pas tres grave mais vous pouvez consulter un psychologue si vous le souhaitez",
 	 "vous souffrez peut etre de dysthymie, nous vous conseillons de voir un spécialiste de la santé,
 	 "vous souffrez peut etre de troube depressif psychotique, nous vous conseillons de consulter en urgence un psychiatre")
 	]
+
+
 Xnew = nmp
 ynew = model.predict(Xnew)
 print (ynew)
