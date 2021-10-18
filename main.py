@@ -223,7 +223,7 @@ def put_res(title, year, plot, rating, dynamodb=None):
         }
     )
     return response
-
+ 
 put_res(df[0], 2015, "Nothing happens at all.", 0)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
