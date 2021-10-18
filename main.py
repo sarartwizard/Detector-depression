@@ -224,8 +224,6 @@ def put_res(title, year, plot, rating, dynamodb=None):
     )
     return response
 
-
-if name == 'main':
     movie_resp = put_res("The Big New Movie", 2015, "Nothing happens at all.", 0)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
