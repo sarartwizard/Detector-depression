@@ -15,7 +15,7 @@ st.write('''
 ### Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
 ''')
 
-st.sidebar.header("les parametres d'entrée")
+st.sidebar.header("les symptomes")
 
 
 
