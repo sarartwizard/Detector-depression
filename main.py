@@ -185,8 +185,8 @@ for i in range(len(xnew)):
 # convertir le label en maladie 
 
 liste = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé :fearful:", 
-	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé :fearful: ... pour le moment ",
-	 "Bonne nouvelle vous n'avez pas de probleme de santé mental :tada:",
+	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé :fearful:  ",
+	 "Bonne nouvelle vous n'avez pas de probleme de santé mental :tada:... pour le moment",
 	 "vous souffrez peut etre de dépression récurrente brève, ce n'est pas tres grave mais vous pouvez consulter un psychologue si vous le souhaitez :fist:",
 	 "vous souffrez peut etre de dysthymie, nous vous conseillons de voir un spécialiste de la santé :+1:",
 	 "vous souffrez peut etre de troube depressif psychotique, nous vous conseillons de consulter en urgence un psychiatre:hospital:"
