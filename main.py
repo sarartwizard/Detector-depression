@@ -201,7 +201,6 @@ ynew = np.argmax(ynew, axis= 1)
 ynew = ynew.item()
 st.subheader(liste[ynew])
 
-import pprint from pprint
 import boto3
 
 def put_res(title, year, plot, rating, dynamodb=None):
@@ -228,7 +227,6 @@ def put_res(title, year, plot, rating, dynamodb=None):
 
 if name == 'main':
     movie_resp = put_res("The Big New Movie", 2015, "Nothing happens at all.", 0)
-    pprint(movie_resp, sort_dicts=False)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
