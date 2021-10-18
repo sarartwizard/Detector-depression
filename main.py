@@ -85,8 +85,8 @@ def user_input():
     parametres_depression =pd.DataFrame(data,index=[0])
     return parametres_depression
 
-df=user_input()
-nmp=df.to_numpy()
+df1=user_input()
+nmp=df1.to_numpy()
 
 st.write('''Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.''')
 st.write(''' 0 :arrow_right:  Jamais''')
@@ -222,7 +222,7 @@ def put_res(title, year, plot, rating, dynamodb=None):
         }
     )
     return response
-st.subheader(df[0])
+st.subheader(df1)
  
 #put_res(nmp[0], 2015, "Nothing happens at all.", 0)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
