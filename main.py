@@ -134,12 +134,8 @@ def Build_Model():
 
 model = Build_Model()
 
-from sklearn.datasets import make_blobs
-xnew, _ = make_blobs(n_samples=1, centers=2, n_features=26, random_state=1)
-ynew = model.predict_proba(xnew)
+history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=100, batch_size= 1000) 
 
-for i in range(len(xnew)):
-	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
 
 
 # 
@@ -191,7 +187,7 @@ liste = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons 
 	 "vous souffrez peut etre de dysthymie, nous vous conseillons de voir un spécialiste de la santé :+1:",
 	 "vous souffrez peut etre de troube depressif psychotique, nous vous conseillons de consulter en urgence un psychiatre:hospital:"
 	]
-
+# données de l'utilisateur passées en entré du model 
 
 Xnew = nmp
 ynew = model.predict(Xnew)
@@ -229,10 +225,10 @@ if genre == 0 :
 if genre == 1 :
 	genre  = "Femme"
 	
-put_res("Personal result", 2021, genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,
-	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires,modififcation_de_lappetit,
-	Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,accéleration_de_la_pensé,
-        grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
+#put_res("Personal result", 2021, genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,
+#	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires,modififcation_de_lappetit,
+#	Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,accéleration_de_la_pensé,
+ #       grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
