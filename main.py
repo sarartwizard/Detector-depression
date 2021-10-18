@@ -87,7 +87,6 @@ def user_input():
 
 df=user_input()
 nmp=df.to_numpy()
-print(df)
 
 st.write('''Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.''')
 st.write(''' 0 :arrow_right:  Jamais''')
@@ -223,8 +222,9 @@ def put_res(title, year, plot, rating, dynamodb=None):
         }
     )
     return response
+
  
-put_res(df[0], 2015, "Nothing happens at all.", 0)
+put_res(nmp[0], 2015, "Nothing happens at all.", 0)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
