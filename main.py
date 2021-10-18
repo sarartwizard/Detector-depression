@@ -143,9 +143,6 @@ for i in range(len(xnew)):
 	print("X=%s, Predicted=%s" % (xnew[i], ynew[i]))
 
 
-
-history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=100, batch_size= 1000)
-
 # 
 # st.write(df)
 # 
@@ -204,7 +201,34 @@ ynew = np.argmax(ynew, axis= 1)
 ynew = ynew.item()
 st.subheader(liste[ynew])
 
+import pprint from pprint
+import boto3
 
+def put_res(title, year, plot, rating, dynamodb=None):
+    if not dynamodb:
+        dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id='AKIAU7JVIRZH7TLT5VZL', aws_secret_access_key='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')
+
+    #boto3.client('s3', region_name="eu-west-1",endpoint_url=S3_LOCATION, aws_access_key_id=S3_KEY, aws_secret_access_key=S3_SECRET)
+
+
+    table = dynamodb.Table('ppd_res')
+    response = table.put_item(
+       Item={
+            'id': '1',
+            'year': year,
+            'title': title,
+            'info': {
+                'plot': plot,
+                'rating': rating
+            }
+        }
+    )
+    return response
+
+
+if name == 'main':
+    movie_resp = put_res("The Big New Movie", 2015, "Nothing happens at all.", 0)
+    pprint(movie_resp, sort_dicts=False)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
