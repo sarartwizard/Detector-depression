@@ -15,40 +15,40 @@ st.write('''
 ### Cette application diagnostique la presence de trouble mental chez une personne de plus de 15ans :computer:
 ''')
 
-st.sidebar.header("les symptomes")
+st.sidebar.header("les parametres d'entrée")
 
 
-
-
-genre = st.sidebar.slider('Homme = 0 / Femme = 1', 0, 1, 1)
-Age = st.sidebar.slider('Votre age', 15, 60, 25)
-Trouble_du_Sommeil = st.sidebar.slider('Trouble du sommeil', 0, 10, 5)
-Fatigue_intense = st.sidebar.slider('Fatigue intense',0,10,8)
-Ralentissement_psychomoteur_général= st.sidebar.slider('Ralentissement psychomoteur général',0,10,7)
-Perte_de_confianceen_soi = st.sidebar.slider('perte de confiance en soi', 0, 10, 5)
-Anxiété= st.sidebar.slider('Anxiété',0,10,5)
-Irritabilite_frustration = st.sidebar.slider('Irritabilité et frustration', 0, 10, 4)
-Troubles_de_la_mémoire = st.sidebar.slider('trouble de la memoire',0,10,8)
-Douleur_physique_sans_causes= st.sidebar.slider('Douleur physique sans causes',0,10,5)
-envies_suicidaires= st.sidebar.slider('envies suicidaires',0,10,5)
-modififcation_de_lappetit = st.sidebar.slider('modification de lappetit', 0, 10, 5)
-Fausses_croyances= st.sidebar.slider('Fausses croyances',0,10,5)
-Hallucination= st.sidebar.slider('Hallucination',0,10,5)
-interval_de_temps = st.sidebar.slider('interval de temps de trouble depressif', 0, 2, 1)
-variablededepre = st.sidebar.slider('tristesse', 0, 10,5)
-Hyperactivité = st.sidebar.slider('Hyperactivité', 0, 10, 0)
-bonheur_intense = st.sidebar.slider('bonheur intense', 0, 10, 5)
-estime_de_soi_démesuré = st.sidebar.slider('estime de soi démesuré', 0, 10, 3)
-accéleration_de_la_pensé = st.sidebar.slider('accéleration de la pensé', 0, 10, 4)
-grande_distraction = st.sidebar.slider('grande distraction', 0, 10, 5)
-comportement_a_risque = st.sidebar.slider('comportement a risque', 0, 10, 8)
-energie_debordante = st.sidebar.slider('energie debordante', 0, 10, 5)
-dimunition_du_besoin_de_dormir = st.sidebar.slider('dimunition du besoin de dormir', 0, 10, 4)
-variableB = st.sidebar.slider('durée de la manie', 0, 2, 1)
-interval_de_temps2 = st.sidebar.slider('interval de temps des symptomes euphoriques ', 0, 2, 0)
 
 
 def user_input():
+    genre = st.sidebar.slider('Homme = 0 / Femme = 1', 0, 1, 1)
+    Age = st.sidebar.slider('Votre age', 15, 60, 25)
+    Trouble_du_Sommeil = st.sidebar.slider('Trouble du sommeil', 0, 10, 5)
+    Fatigue_intense = st.sidebar.slider('Fatigue intense',0,10,8)
+    Ralentissement_psychomoteur_général= st.sidebar.slider('Ralentissement psychomoteur général',0,10,7)
+    Perte_de_confianceen_soi = st.sidebar.slider('perte de confiance en soi', 0, 10, 5)
+    Anxiété= st.sidebar.slider('Anxiété',0,10,5)
+    Irritabilite_frustration = st.sidebar.slider('Irritabilité et frustration', 0, 10, 4)
+    Troubles_de_la_mémoire = st.sidebar.slider('trouble de la memoire',0,10,8)
+    Douleur_physique_sans_causes= st.sidebar.slider('Douleur physique sans causes',0,10,5)
+    envies_suicidaires= st.sidebar.slider('envies suicidaires',0,10,5)
+    modififcation_de_lappetit = st.sidebar.slider('modification de lappetit', 0, 10, 5)
+    Fausses_croyances= st.sidebar.slider('Fausses croyances',0,10,5)
+    Hallucination= st.sidebar.slider('Hallucination',0,10,5)
+    interval_de_temps = st.sidebar.slider('interval de temps de trouble depressif', 0, 2, 1)
+    variablededepre = st.sidebar.slider('tristesse', 0, 10,5)
+    Hyperactivité = st.sidebar.slider('Hyperactivité', 0, 10, 0)
+    bonheur_intense = st.sidebar.slider('bonheur intense', 0, 10, 5)
+    estime_de_soi_démesuré = st.sidebar.slider('estime de soi démesuré', 0, 10, 3)
+    accéleration_de_la_pensé = st.sidebar.slider('accéleration de la pensé', 0, 10, 4)
+    grande_distraction = st.sidebar.slider('grande distraction', 0, 10, 5)
+    comportement_a_risque = st.sidebar.slider('comportement a risque', 0, 10, 8)
+    energie_debordante = st.sidebar.slider('energie debordante', 0, 10, 5)
+    dimunition_du_besoin_de_dormir = st.sidebar.slider('dimunition du besoin de dormir', 0, 10, 4)
+    variableB = st.sidebar.slider('durée de la manie', 0, 2, 1)
+    interval_de_temps2 = st.sidebar.slider('interval de temps des symptomes euphoriques ', 0, 2, 0)
+
+
 
 
     data = {
@@ -87,6 +87,7 @@ def user_input():
 
 df=user_input()
 nmp=df.to_numpy()
+print(df)
 
 st.write('''Veuillez évaluer vos symptomes sur une échelle de 1 à 10. Plus le chiffre est élevé, plus le symptome est intense.''')
 st.write(''' 0 :arrow_right:  Jamais''')
@@ -134,9 +135,9 @@ def Build_Model():
 
 model = Build_Model()
 
-history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=100, batch_size= 1000) 
 
 
+history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=100, batch_size= 1000)
 
 # 
 # st.write(df)
@@ -181,13 +182,13 @@ history = model.fit(X_train, y_train , validation_data=(X_test,y_test),  epochs=
 # convertir le label en maladie 
 
 liste = ["Vous avez peut etre une Dépression bipolaire I nous vous conseillons de voir un spécialiste de la santé :fearful:", 
-	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé :fearful:  ",
-	 "Bonne nouvelle vous n'avez pas de probleme de santé mental :tada:... pour le moment",
+	 "Vous avez peut etre une Dépression bipolaire II nous vous conseillons de voir un spécialiste de la santé :fearful: ... pour le moment ",
+	 "Bonne nouvelle vous n'avez pas de probleme de santé mental :tada:",
 	 "vous souffrez peut etre de dépression récurrente brève, ce n'est pas tres grave mais vous pouvez consulter un psychologue si vous le souhaitez :fist:",
 	 "vous souffrez peut etre de dysthymie, nous vous conseillons de voir un spécialiste de la santé :+1:",
 	 "vous souffrez peut etre de troube depressif psychotique, nous vous conseillons de consulter en urgence un psychiatre:hospital:"
 	]
-# données de l'utilisateur passées en entré du model 
+
 
 Xnew = nmp
 ynew = model.predict(Xnew)
@@ -196,39 +197,7 @@ ynew = np.argmax(ynew, axis= 1)
 ynew = ynew.item()
 st.subheader(liste[ynew])
 
-import boto3
 
-def put_res(title, year, plot, rating, dynamodb=None):
-    if not dynamodb:
-        dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id='AKIAU7JVIRZH7TLT5VZL', aws_secret_access_key='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')
-
-    #boto3.client('s3', region_name="eu-west-1",endpoint_url=S3_LOCATION, aws_access_key_id=S3_KEY, aws_secret_access_key=S3_SECRET)
-
-
-    table = dynamodb.Table('ppd_res')
-    response = table.put_item(
-       Item={
-            'id': '1',
-            'year': year,
-            'title': title,
-            'info': {
-                'plot': plot,
-                'rating': rating
-            }
-        }
-    )
-    return response
-
-if genre == 0 :
-	genre  = "Homme"
-	
-if genre == 1 :
-	genre  = "Femme"
-	
-#put_res("Personal result", 2021, genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,
-#	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires,modififcation_de_lappetit,
-#	Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,accéleration_de_la_pensé,
- #       grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
