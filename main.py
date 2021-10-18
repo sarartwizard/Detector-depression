@@ -229,10 +229,10 @@ if genre == 0 :
 if genre == 1 :
 	genre  = "Femme"
 	
-#put_res("Personal result", 2021, genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,
-#	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires,modififcation_de_lappetit,
-#	Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,accéleration_de_la_pensé,
- #       grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
+put_res("Personal result", 2021, genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,
+	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires,modififcation_de_lappetit,
+	Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,accéleration_de_la_pensé,
+        grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
