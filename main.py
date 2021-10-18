@@ -198,6 +198,63 @@ ynew = ynew.item()
 st.subheader(liste[ynew])
 
 
+import boto3
+
+def putNewRes(genre, age, sommeil, fatigue, ralentissement, confiance, anxiete, irritabilite, memoire,
+              douleur, suicide, appetit, croyance, hallucination, temps, vardepre, hyperactif, bonheur, estime,acceleration,
+              distraction, risque, energie, dormir, varb, it2, dynamodb=None):
+    if not dynamodb:
+        dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id='AKIAU7JVIRZH7TLT5VZL', aws_secret_access_key='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')
+
+    newid = getNewId()
+    newid2 = str(newid)
+    table = dynamodb.Table('ppd_results')
+    response = table.put_item(
+       Item={
+            'id': newid2,
+            'genre': genre,
+            'age': age,
+            'sommeil': sommeil,
+            'fatigue': fatigue,
+            'ralentissement': ralentissement,
+            'confiance': confiance,
+            'anxiete': anxiete,
+            'irritabilite': irritabilite,
+            'memoire': memoire,
+            'douleur': douleur,
+            'suicide': suicide,
+            'appetit': appetit,
+            'croyance': croyance,
+            'hallucination': hallucination,
+            'temps': temps,
+            'vardepre': vardepre,
+            'hyperactif': hyperactif,
+            'estime': estime,
+            'acceleration': acceleration,
+            'distraction': distraction,
+            'risque': risque,
+            'energie': energie,
+            'dormir': dormir,
+            'varb': varb,
+            'it2': it2
+        }
+    )
+    return response
+
+def getNewId(dynamodb=None):
+    if not dynamodb:
+        dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id='AKIAU7JVIRZH7TLT5VZL',
+                                  aws_secret_access_key='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')
+    table = dynamodb.Table('ppd_results')
+    response = table.scan()
+    return response['Count']
+
+putNewRes(genre,Age,Trouble_du_Sommeil,Fatigue_intense,Ralentissement_psychomoteur_général,Perte_de_confianceen_soi,    
+	Anxiété,Irritabilite_frustration,Troubles_de_la_mémoire,Troubles_de_la_mémoire,Douleur_physique_sans_causes,envies_suicidaires
+	,modififcation_de_lappetit,Fausses_croyances,Hallucination,interval_de_temps,variablededepre,Hyperactivité,bonheur_intense, estime_de_soi_démesuré,
+	accéleration_de_la_pensé,grande_distraction,comportement_a_risque,energie_debordante,dimunition_du_besoin_de_dormir,variableB,interval_de_temps2)
+
+
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
