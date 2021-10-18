@@ -222,9 +222,16 @@ def put_res(title, year, plot, rating, dynamodb=None):
         }
     )
     return response
+
+if genre == 0 :
+	genre  = "Homme"
+	
+if genre == 1 :
+	genre  = "Femme"
+	
 st.subheader(genre)
  
-#put_res(nmp[0], 2015, "Nothing happens at all.", 0)
+put_res(genre, 2015, "Nothing happens at all.", 0)
 # depression = pd.read_excel('C:/Users/nadou/OneDrive/Documents/Depression.xlsx')
 # rfc = RandomForestClassifier(n_estimators=100)
 #
